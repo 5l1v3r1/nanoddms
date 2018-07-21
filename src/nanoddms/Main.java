@@ -36,18 +36,24 @@ public class Main {
 			return;
 		}
 		
-		// Enumerate processes
+		// Enumerate devices/processes
 		System.out.println("\n" +
 				"--------------------------------------------------------\n" +
 				"Android device(s)/<PID> <app. package>:<JDI debug port>\n" +
 				"--------------------------------------------------------  "
 		);
+		// Loop devices
 		for(IDevice device:devices) {
+			// Print device name
 			System.out.println("\n " + device.getName());
+			// Get processes (JDWP clients)
 			Client[] clients = device.getClients();
+			// Loop the processes
 			for(Client client:clients) {
+				// Get process data and JDWP port
 				ClientData clientData = client.getClientData();
 				int port = client.getDebuggerListenPort();
+				// Try to print the data/port
 				try {
 					System.out.println(
 						"\t" + Integer.toString(clientData.getPid()) + "\t" + 
