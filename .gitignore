@@ -1,0 +1,9 @@
+# Eclipse
+/bin/
+/.classpath
+/.project
+
+# MacOS :(                                                                                                                                                                         
+.DS_Store                                                                                                                                                                         
+.AppleDouble                                                                                                                                                                      
+.LSOverride 
