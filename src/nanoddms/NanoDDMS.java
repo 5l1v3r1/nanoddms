@@ -77,6 +77,7 @@ public class NanoDDMS {
 		// Timeout?
 		if (secondsGone >= secondsTimeout) {
 			System.out.println("Timeout!");
+			AndroidDebugBridge.terminate();
 			return;
 		}
 		

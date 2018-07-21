@@ -6,4 +6,7 @@
 # MacOS :(                                                                                                                                                                         
 .DS_Store                                                                                                                                                                         
 .AppleDouble                                                                                                                                                                      
-.LSOverride 
+.LSOverride
+
+# Third-party JAR's for Eclipse project:
+/jar/lib/ 
