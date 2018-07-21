@@ -7,11 +7,16 @@ import java.util.concurrent.TimeUnit;
 import com.android.ddmlib.AndroidDebugBridge;
 import com.android.ddmlib.IDevice;
 
-public class Main {
+public class NanoDDMS {
 	
 	private static String help = 
 		"Usage:\n" +
-		"    java nanoddms.jar <path/to/adb/executable> [<timeout in seconds>]\n";
+		"    java -jar nanoddms.jar <path/to/adb/executable> [<timeout in seconds>]\n" +
+		"where\n" +
+		"    <path/to/adb/executable> should be a full path to adb (adb.exe on Windows)\n" + 
+		"                             executable in your system\n" + 
+		"    <timeout in seconds> is an optional argument, it's a waiting for device\n" + 
+		"                         timeout in seconds (60 sec = 1 min, if not specified)\n";
 
 	public static void main(String[] args) {
 		
@@ -21,7 +26,7 @@ public class Main {
 		// Manage command line arguments
 		if (args.length == 0 || args.length > 2) {
 			System.out.println("Incorrect number of arguments!");
-			System.out.println(Main.help);
+			System.out.println(NanoDDMS.help);
 			return;
 		}
 		
@@ -30,12 +35,12 @@ public class Main {
 		File adbFile = new File(adbPath);
 		if (!adbFile.exists()) {
 			System.out.println("The path does not exist: " + adbPath);
-			System.out.println(Main.help);
+			System.out.println(NanoDDMS.help);
 			return;
 		}
 		if(!adbFile.isFile()) {
 			System.out.println("Not a file: " + adbPath);
-			System.out.println(Main.help);
+			System.out.println(NanoDDMS.help);
 			return;
 		}
 		
@@ -46,7 +51,7 @@ public class Main {
 				secondsTimeout = Integer.parseUnsignedInt(timeoutArg);
 			} catch (NumberFormatException e) {
 				System.out.println("Wrong timeout number format: " + timeoutArg);
-				System.out.println(Main.help);
+				System.out.println(NanoDDMS.help);
 				return;
 			}
 		}
