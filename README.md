@@ -1,5 +1,3 @@
-__WARNING!__ At the moment, the tool is under development. It's even not a beta, so please do not try to use it.
-
 # NanoDDMS
 
 This is a _nano_ version of Android Device Monitor (ADM, formerly known as DDMS). The only thing it can do is showing connected Android devices, Android processes with JDWP support, and JDWP debug ports. No heap info, threads, screenshots etc.
